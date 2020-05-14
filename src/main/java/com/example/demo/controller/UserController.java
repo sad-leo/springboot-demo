@@ -24,13 +24,13 @@ public class UserController {
     WbUserService wbUserService;
 
     @GetMapping("/getUserList")
-    @ApiOperation(value = "测试接口", notes="无参数测试接口")
+    @ApiOperation(value = "测试接口", notes="查询测试接口")
     public List<WbUserVo> getUserList() {
         return wbUserService.getUserList();
     }
 
     @PutMapping("/getUserList")
-    @ApiOperation(value = "测试接口", notes="无参数测试接口")
+    @ApiOperation(value = "测试接口", notes="修改测试接口")
     public String gutUserList(@RequestParam String name) {
         return name;
     }

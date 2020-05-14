@@ -34,7 +34,7 @@ public class SwaggerConfig {
         return new ApiInfoBuilder()
                 .title("WeatherForecastService天气预测服务")
                 .description("Author：zeus") // 任意，请稍微规范点
-                .termsOfServiceUrl("http://localhost:12121/swagger-ui.html") // 将“url”换成自己的ip:port
+                .termsOfServiceUrl("http://localhost:8080/swagger-ui.html") // 将“url”换成自己的ip:port
                 .version("1.0.0")
                 .build();
     }
