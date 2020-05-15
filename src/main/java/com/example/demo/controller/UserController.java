@@ -1,13 +1,13 @@
 package com.example.demo.controller;
 
 import com.example.demo.service.WbUserService;
+import com.example.demo.vo.ResultVo;
 import com.example.demo.vo.WbUserVo;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 /*
  * @author wujie
@@ -18,20 +18,22 @@ import java.util.List;
 @RestController
 @RequestMapping("/user")
 @Slf4j
+@Api(value = "/user",tags = "用户接口")
 public class UserController {
 
     @Autowired
     WbUserService wbUserService;
 
-    @GetMapping("/getUserList")
+    @GetMapping("/")
     @ApiOperation(value = "测试接口", notes="查询测试接口")
-    public List<WbUserVo> getUserList() {
-        return wbUserService.getUserList();
+    public ResultVo getUserList() {
+        return ResultVo.success(wbUserService.getUserList());
     }
 
-    @PutMapping("/getUserList")
+    @PutMapping("/{user}")
     @ApiOperation(value = "测试接口", notes="修改测试接口")
-    public String gutUserList(@RequestParam String name) {
-        return name;
+    public ResultVo gutUserList(@PathVariable WbUserVo userVo) {
+
+        return ResultVo.success(userVo);
     }
 }
