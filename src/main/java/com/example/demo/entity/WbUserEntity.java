@@ -14,13 +14,6 @@ public class WbUserEntity {
     private String userId;
     private String userName;
     private String displayName;
+    private String password;
 
-    @Override
-    public String toString() {
-        return "WbUserEntity{" +
-                "userId='" + userId + '\'' +
-                ", userName='" + userName + '\'' +
-                ", displayName='" + displayName + '\'' +
-                '}';
-    }
 }

@@ -30,9 +30,9 @@ public class UserController {
         return ResultVo.success(wbUserService.getUserList());
     }
 
-    @PutMapping("/{user}")
+    @PutMapping("/")
     @ApiOperation(value = "测试接口", notes="修改测试接口")
-    public ResultVo gutUserList(@PathVariable WbUserVo userVo) {
+    public ResultVo gutUserList(@RequestBody WbUserVo userVo) {
 
         return ResultVo.success(userVo);
     }
