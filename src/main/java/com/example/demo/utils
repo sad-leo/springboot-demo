@@ -1,0 +1,71 @@
+package com.example.demo.utils;
+
+/**
+ * 生成随机字符串
+ */
+public class RandomKey {
+
+    /**
+     * 获取指定随机字符串，带特殊字符
+     *
+     * @param digits
+     * @return
+     */
+    public static String getRandomStringBySymbol(int digits) {
+        if (digits <= 0) {
+            return null;
+        }
+        StringBuilder sbf = new StringBuilder();
+        for (int i = 0; i < digits; i++) {
+            sbf.append((char) (33 + getRandomNum(93)));
+        }
+        return sbf.toString();
+    }
+
+    /**
+     * 获取指定位数的随机字符串
+     * A - Z => 65 - 90
+     * a - z => 97 - 121
+     *
+     * @param digits
+     * @return
+     */
+    public static String getRandomString(int digits) {
+        if (digits <= 0) {
+            return null;
+        }
+
+        StringBuilder sbf = new StringBuilder();
+        for (int i = 0; i < digits; i++) {
+            int type = getRandomNum(2);
+            if (type == 0) {
+                sbf.append((char) (65 + getRandomNum(25)));
+            }
+            if (type == 1) {
+                sbf.append((char) (97 + getRandomNum(24)));
+            }
+            if (type == 2) {
+                sbf.append(getRandomNum(10));
+            }
+        }
+        return sbf.toString();
+    }
+
+    /**
+     * 获取指定最大值的随机数
+     *
+     * @param max
+     * @return
+     */
+    public static int getRandomNum(int max) {
+        return (int) (Math.random() * (max + 1));
+    }
+
+
+    public static void main(String[] args) {
+        System.out.println(getRandomString(32));
+        System.out.println(getRandomStringBySymbol(32));
+    }
+
+
+}
